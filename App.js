@@ -1,13 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet} from 'react-native';
+  
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./store";
+import  RootNavigator  from "./components/Navigation/index";
+import { NativeBaseProvider } from 'native-base';
+import Room from './components/ChatRoom/Room';
+import BG from "./LQ1QwfcR.jpg"
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ImageBackground  style={{width:"100%", height:"100%"}} source= {BG} 
+  >
+
+    <Provider store={store}>
+      <NativeBaseProvider >
+        <Room/>
+     {/* <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer> */}
+    </NativeBaseProvider>
+  </Provider>
+  </ImageBackground>
   );
 }
 
