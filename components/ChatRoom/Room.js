@@ -56,11 +56,11 @@ function Room() {
         /> */}
       </View>
       <View
-        className="BigView"
-        style={{
-          //   overflow: "scroll",
-          scrollBehavior: "smooth",
-        }}
+        // className="BigView"
+        // style={{
+        //     overflow: "scroll",
+        //   scrollBehavior: "smooth",
+        // }}
       >
         {/* <View
           className="CircledText"
@@ -84,11 +84,11 @@ function Room() {
       </View>
       <View
         style={{
-          position: "absolute",
+          position: "steaky",
           width: "90%",
           height: "54px",
           left: "30%px",
-          top: "298%",
+          // top: "298%",
           boxSizing: " border-box",
         }}
       >
