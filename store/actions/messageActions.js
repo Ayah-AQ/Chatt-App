@@ -41,7 +41,7 @@ export const deleteMessage = (messageId) => {
       await instance.delete(`/messages/${messageId}`);
       dispatch({
         type: actionTypes.DELETE_MESSAGE,
-        payload: { messageId: messageId },
+        payload: { messageId: messageId }, // REVIEW: { messageId }
       });
     } catch (error) {
       console.log(error);

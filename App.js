@@ -1,16 +1,16 @@
 import React from "react";
-
 import { Provider } from "react-redux";
 
+// Styling
+import BG from "./LQ1QwfcR.jpg";
+import { NativeBaseProvider } from "native-base";
 import { ImageBackground, StyleSheet } from "react-native";
 
-import { NativeBaseProvider } from "native-base";
-
+// Store
 import store from "./store";
 
+// Component
 import Room from "./components/ChatRoom/Room";
-
-import BG from "./LQ1QwfcR.jpg";
 
 export default function App() {
   return (
