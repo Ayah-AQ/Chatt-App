@@ -18,7 +18,7 @@ const FormMessage = () => {
   const resetForm = () => {
     setMessage({ text: "" });
   };
-
+  // REVIEW: You're copy pasting code from Reactjs without reading it :))))
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addMessage(message));
@@ -27,6 +27,7 @@ const FormMessage = () => {
   };
 
   return (
+    // Why 2 Views?
     <View>
       <View>
         <Input

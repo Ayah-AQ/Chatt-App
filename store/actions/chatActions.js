@@ -2,6 +2,8 @@ import instance from "./instance";
 
 import * as actionTypes from "./types";
 
+// REVIEW: The commented out code is  a disaster </3
+
 export const fetchChats = () => {
   return async (dispatch) => {
     try {
@@ -13,36 +15,36 @@ export const fetchChats = () => {
       });
     } catch (error) {
       console.log(error.message);
-    // }
-  // };
-// };
+      // }
+      // };
+      // };
 
-// export const addChat = (newChat) => {
-//   return async (dispatch) => {
-//     try {
-//       const formData = new FormData();
-//       for (const key in newChat) formData.append(key, newChat[key]);
-//       const res = await instance.post(`/chats`, formData);
-//       dispatch({
-//         type: actionTypes.ADD_CHAT,
-//         payload: { newChat: res.data },
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      // export const addChat = (newChat) => {
+      //   return async (dispatch) => {
+      //     try {
+      //       const formData = new FormData();
+      //       for (const key in newChat) formData.append(key, newChat[key]);
+      //       const res = await instance.post(`/chats`, formData);
+      //       dispatch({
+      //         type: actionTypes.ADD_CHAT,
+      //         payload: { newChat: res.data },
+      //       });
+      //     } catch (error) {
+      //       console.log(error);
+      //     }
+      //   };
+      // };
 
-// export const deleteChat = (chatId) => {
-//   return async (dispatch) => {
-//     try {
-//       await instance.delete(`/chats/${chatId}`);
-//       dispatch({
-//         type: actionTypes.DELETE_CHAT,
-//         payload: { chatId: chatId },
-//       });
-//     } catch (error) {
-//       console.log(error);
+      // export const deleteChat = (chatId) => {
+      //   return async (dispatch) => {
+      //     try {
+      //       await instance.delete(`/chats/${chatId}`);
+      //       dispatch({
+      //         type: actionTypes.DELETE_CHAT,
+      //         payload: { chatId: chatId },
+      //       });
+      //     } catch (error) {
+      //       console.log(error);
     }
   };
 };

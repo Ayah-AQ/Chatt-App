@@ -5,6 +5,8 @@ import { fetchChats } from "./actions/chatActions";
 import { fetchProfiles } from "./actions/profileAction";
 // import { checkForToken } from "./actions/authActions";
 import rootReducer from "./reducer/rootReducer";
+
+// REVIEW: Remove the composeEnhancers, we dont use it in the mobile
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

@@ -6,6 +6,7 @@ export const fetchMessages = () => {
   return async (dispatch) => {
     try {
       const res = await instance.get("/messages");
+      // REVIEW: Remove commented out code if not needed anymore
       // console.log(res.data);
       dispatch({
         type: actionTypes.FETCH_MESSAGES,
@@ -22,6 +23,7 @@ export const addMessage = (newMessage) => {
     try {
       const formData = new FormData();
       for (const key in newMessage) formData.append(key, newMessage[key]);
+      // REVIEW: Don't use `` if you're not interpolating a variable
       const res = await instance.post(`/messages`, formData);
       dispatch({
         type: actionTypes.ADD_MESSAGE,

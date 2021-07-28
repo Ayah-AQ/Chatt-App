@@ -12,7 +12,7 @@ import MessageList from "./messages/MessageList";
 
 function Room() {
   const messages = useSelector((state) => state.messages.messages);
-
+  // REVIEW: REMOVE INLINE STYLIIINNNNGGGG
   return (
     <View style={{ width: "100%", position: "absolute" }}>
       <View
