@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import "./Room.css";
+// import "./Room.css";
 import Profile from "../../Picture1.png";
 
 import { View, Text, Image } from "native-base";
