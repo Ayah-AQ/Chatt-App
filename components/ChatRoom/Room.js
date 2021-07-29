@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 //Style
 import { BkG, RedBox, RoomBorder } from "../../styles";
 
+
 import Profile from "../../Picture1.png";
 import BG from "../../LQ1QwfcR.jpg";
 import { View, Text, Image } from "native-base";
