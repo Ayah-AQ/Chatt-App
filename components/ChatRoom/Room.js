@@ -1,28 +1,27 @@
 import React from "react";
-
 import { useSelector } from "react-redux";
+//Style
+import { BkG, RedBox, RoomBorder } from "../../styles";
 
-// import "./Room.css";
+
 import Profile from "../../Picture1.png";
-
+import BG from "../../LQ1QwfcR.jpg";
 import { View, Text, Image } from "native-base";
-
-import FormMessage from "./messages/FormMessage";
+//component
+import MessageForm from "./messages/MessageForm";
 import MessageList from "./messages/MessageList";
 
 function Room() {
-  const messages = useSelector((state) => state.messages.messages);
+  const messages = useSelector((state) => state.messageReducer.messages);
 
   return (
-    <View style={{ width: "100%", position: "absolute" }}>
-      <View
-        style={{
-          border: "15px solid red",
-          backgroundColor: "red",
-          width: "100%",
-        }}
-      >
+    <BkG source={BG}>
+  
+    <RoomBorder >
+      <RedBox
+       >
         <Text>Chat name </Text>
+        {/* Ask Laila */}
         <Image
           src={Profile}
           style={{
@@ -31,21 +30,14 @@ function Room() {
             height: "100%",
           }}
         />
-      </View>
+
+      </RedBox>
       <View>
         <MessageList messages={messages} />
       </View>
-      <View
-        style={{
-          position: "steaky",
-          width: "90%",
-          height: "54px",
-          left: "30%px",
-          boxSizing: " border-box",
-        }}
-      ></View>
-      <FormMessage />
-    </View>
+      <MessageForm />
+    </RoomBorder>
+    </BkG>
   );
 }
 

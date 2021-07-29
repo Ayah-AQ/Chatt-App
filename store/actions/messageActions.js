@@ -6,7 +6,6 @@ export const fetchMessages = () => {
   return async (dispatch) => {
     try {
       const res = await instance.get("/messages");
-      // console.log(res.data);
       dispatch({
         type: actionTypes.FETCH_MESSAGES,
         payload: res.data,
@@ -39,7 +38,7 @@ export const deleteMessage = (messageId) => {
       await instance.delete(`/messages/${messageId}`);
       dispatch({
         type: actionTypes.DELETE_MESSAGE,
-        payload: { messageId: messageId },
+        payload: { messageId },
       });
     } catch (error) {
       console.log(error);
