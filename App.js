@@ -1,16 +1,17 @@
 import React from "react";
-
 import { Provider } from "react-redux";
-
-import { ImageBackground, StyleSheet } from "react-native";
-
-import { NativeBaseProvider } from "native-base";
-
 import store from "./store";
 
-import Room from "./components/ChatRoom/Room";
+import { ImageBackground, StyleSheet } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
 
 import BG from "./LQ1QwfcR.jpg";
+
+import Room from "./components/ChatRoom/Room";
+import  RootNavigator  from "./components/Navigation/index";
+
+
 
 export default function App() {
   return (
@@ -23,7 +24,12 @@ export default function App() {
     >
       <Provider store={store}>
         <NativeBaseProvider>
-          <Room />
+        <NavigationContainer>
+          
+        <RootNavigator />
+     
+        
+         </NavigationContainer>
         </NativeBaseProvider>
       </Provider>
     </ImageBackground>
@@ -33,7 +39,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },

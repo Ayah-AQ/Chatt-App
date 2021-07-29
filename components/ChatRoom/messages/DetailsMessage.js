@@ -1,27 +1,30 @@
 import React from "react";
 
-import { Text, View, Image } from "react-native";
+import {View} from "react-native";
+import { MessageBox } from "../../../styles";
 
 const DetailsMessage = ({ message }) => {
   return (
     <View style={{ flexDirection: "column" }}>
-      <Text
-        style={{
-          backgroundColor: "#F48444",
-          width: "50%",
-          height: "50%",
-          borderRadius: "5%",
-          position: "unset",
-          padding: "5%",
-          marginTop: "2%",
-          color: "black",
-        }}
-      >
+      <MessageBox>
         {message.text}
-      </Text>
+      </MessageBox>
 
-      {message.image && <Image style={{ display: "none" }} />}
-    </View>
+{/* Ask Laila */}
+      {message.image ? (
+        <img
+          src={message.image}
+          style={{
+            width: "300px",
+            height: "300px",
+            borderRadius: "10%",
+            marginLeft: "55%",
+            padding: "1%",
+          }}
+        />
+      ) : (
+        <img style={{ display: "none" }} />
+      )}    </View>
   );
 };
 export default DetailsMessage;
