@@ -2,7 +2,7 @@ import React, { useState , useEffect } from "react";
 import { useDispatch } from "react-redux";
 //style
 import {  Input } from "native-base";
-import { Button, Image, View, Platform } from 'react-native';
+import { Button, Image, View, Platform, Text } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import EmojiSelector, { Categories } from "react-native-emoji-selector";
 
@@ -19,7 +19,7 @@ const MessageForm = () => {
     setMessage({ text: "" });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     dispatch(addMessage(message));
     resetForm();
   };
@@ -72,7 +72,7 @@ const MessageForm = () => {
             {/* <EmojiSelector
   category={Categories.symbols}
   onEmojiSelected={emoji => console.log(emoji)}/>; */}
-        <Button onPress={handleSubmit}>send</Button>
+        <Button onPress={handleSubmit} title="send"></Button>
       </View>
      
     </View>

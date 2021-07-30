@@ -20,8 +20,8 @@ export const addMessage = (newMessage) => {
   return async (dispatch) => {
     try {
       const formData = new FormData();
-      for (const key in newMessage) formData.append(key, newMessage[key]);
-      const res = await instance.post(`/messages`, formData);
+      for (const key in newMessage)  formData.append(key, newProfile[key]);
+      const res = await instance.post("/messages", formData);
       dispatch({
         type: actionTypes.ADD_MESSAGE,
         payload: { newMessage: res.data },

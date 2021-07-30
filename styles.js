@@ -8,7 +8,6 @@ export const AuthContainer = styled(View)`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  background-color: white;
   padding-right: 60px;
   padding-left: 60px;
 `;
@@ -72,11 +71,11 @@ export const AuthTextInput = styled.TextInput`
   border-bottom-width: 1px;
 `;
 export const MessageBox= styled(Text)`
-    background-Color: #F48444;
+    background-color: #F48444;
           width: 50%;
           height: 50%;
-          border-Radius: 5%;
-          position: unset;
+          /* border-Radius: 5%; */
+          /* position: unset; */
           padding: 5%;
           margin-Top: 2%;
           color: black;
@@ -84,15 +83,15 @@ export const MessageBox= styled(Text)`
 export const MessageImage= styled.Image`
   width: 300px;
  height: 300px;
-border-Radius: 10%;
-margin-Left: 55%;
+/* border-Radius: 10%; */
+margin-left: 55%;
 padding: 1%;
 `;
 export const BkG= styled.ImageBackground`
  width: 100%;
       height: 100%;
-      background-size: cover;
-    object-fit: cover;
+      /* background-size: cover;
+    object-fit: cover; */
 `;
 export const RoomBorder = styled(View)`
 height:100%;
@@ -101,6 +100,11 @@ height:100%;
 `;
 export const RedBox = styled(View)`
 border: 15px solid red;
-          background-Color: red;
+          background-color: red;
           width: 100%;
+`;
+export const ProfileImage = styled(Image)`
+position: absolute;
+            width: 100px;
+            height: 100px;
 `;

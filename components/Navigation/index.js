@@ -11,16 +11,7 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return(
       <Navigator   
-      initialRouteName="signUp"
-      screenOptions={{
-      // headerTintColor: "white",
-      headerStyle: {
-        backgroundColor: "#C9D8B6",
-      },
-      headerTitleStyle: {
-        fontWeight: "bold",
-      },
-      }}> 
+      initialRouteName="Room"> 
    
          <Screen name="Home" component={Home} options={{ headerShown: false }} />
          <Screen

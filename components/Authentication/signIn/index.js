@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 //Style
 import { ImageBackground } from "react-native";
-import BG from "../../../LQ1QwfcR.jpg"
+import BG from "../../../BG.png"
 import {
   AuthButton,
   AuthButtonText,
@@ -27,13 +27,12 @@ const Signin = ({ navigation }) => {
    };
 
   return (
-    // Ask Laila
     <ImageBackground
     style={{
       width: "100%",
       height: "100%",
     }}
-    source={BG}
+    source= {BG}
   >
     <AuthContainer>
       <AuthTitle>Sign In</AuthTitle>

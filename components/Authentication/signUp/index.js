@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 //Style
 import { ImageBackground } from "react-native";
-import BG from "../../../LQ1QwfcR.jpg"
+import BG from "../../../BG.png"
 import {
   AuthButton,
   AuthButtonText,

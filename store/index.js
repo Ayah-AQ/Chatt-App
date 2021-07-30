@@ -11,7 +11,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 store.dispatch(fetchMessages());
 store.dispatch(fetchChats());
-store.dispatch(fetchProfiles());
+// store.dispatch(fetchProfiles());
 store.dispatch(checkForToken())
 
 export default store;

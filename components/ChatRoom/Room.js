@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 //Style
-import { BkG, RedBox, RoomBorder } from "../../styles";
+import { BkG, RedBox, RoomBorder,ProfileImage } from "../../styles";
 
-import Profile from "../../Picture1.png";
-import BG from "../../LQ1QwfcR.jpg";
+import profile from "../../Picture1.png";
+import BG from "../../BG.png";
 import { View, Text, Image } from "native-base";
 //component
 import MessageForm from "./messages/MessageForm";
@@ -20,14 +20,9 @@ function Room() {
       <RedBox
        >
         <Text>Chat name </Text>
-        {/* Ask Laila */}
-        <Image
-          src={Profile}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-          }}
+        <ProfileImage
+          source={profile}
+        
         />
 
       </RedBox>
