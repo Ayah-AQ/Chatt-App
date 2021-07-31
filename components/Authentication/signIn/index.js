@@ -34,6 +34,7 @@ const Signin = ({ navigation }) => {
       height: "100%",
     }}
     source={BG}
+    alt="img"
   >
     <AuthContainer>
       <AuthTitle>Sign In</AuthTitle>

@@ -71,28 +71,28 @@ export const AuthTextInput = styled.TextInput`
   margin-bottom: 30px;
   border-bottom-width: 1px;
 `;
-export const MessageBox= styled(Text)`
+export const MessageBox= styled.Text`
     background-Color: #F48444;
           width: 50%;
-          height: 50%;
-          border-Radius: 5%;
-          position: unset;
+          /* height: 50%; */
+          /* border-radius: 5%; */
+          /* position: unset; */
           padding: 5%;
-          margin-Top: 2%;
+          margin-top: 2%;
           color: black;
+          top:5px;
+        
 `;
 export const MessageImage= styled.Image`
   width: 300px;
  height: 300px;
-border-Radius: 10%;
-margin-Left: 55%;
-padding: 1%;
+ top: 3%;
 `;
-export const BkG= styled.ImageBackground`
- width: 100%;
-      height: 100%;
-      background-size: cover;
-    object-fit: cover;
+export const BkG= styled(ImageBackground)`
+    width: 100%;
+    height: 100%;
+    /* background-size: cover; */
+    /* object-fit: cover; */
 `;
 export const RoomBorder = styled(View)`
 height:100%;
@@ -100,7 +100,7 @@ height:100%;
   position: absolute;
 `;
 export const RedBox = styled(View)`
-border: 15px solid red;
-          background-Color: red;
+border: 10px solid red;
+          background-color: red;
           width: 100%;
 `;

@@ -10,33 +10,38 @@ import { View, Text, Image } from "native-base";
 //component
 import MessageForm from "./messages/MessageForm";
 import MessageList from "./messages/MessageList";
+import { ScrollView } from "react-native-gesture-handler";
+import ImgPick from "./messages/ImagePick/index.js";
+import { zIndex } from "styled-system";
 
 function Room() {
   const messages = useSelector((state) => state.messageReducer.messages);
 
   return (
-    <BkG source={BG}>
-  
+    <BkG source={BG} alt="Img">
     <RoomBorder >
       <RedBox
        >
-        <Text>Chat name </Text>
-        {/* Ask Laila */}
+        <Text style={{position: "absolute",marginLeft:"70%",marginTop:40, }}>Chat name </Text>
         <Image
-          src={Profile}
+        alt="Img"
+          source={Profile}
           style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
+            width: 90,
+            height: 90,
+            marginTop:14,
+            zIndex:1
           }}
         />
-
       </RedBox>
-      <View>
+      
+      <ScrollView>
         <MessageList messages={messages} />
-      </View>
+      </ScrollView>
       <MessageForm />
-    </RoomBorder>
+      </RoomBorder>
+      <View type="button" style={{marginLeft:20,marginTop:"150%", }}>
+       </View>
     </BkG>
   );
 }

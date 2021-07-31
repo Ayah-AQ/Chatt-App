@@ -15,7 +15,7 @@ import  RootNavigator  from "./components/Navigation/index";
 
 export default function App() {
   return (
-    <ImageBackground
+    <ImageBackground alt="img"
       style={{
         width: "100%",
         height: "100%",
