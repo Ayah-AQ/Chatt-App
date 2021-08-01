@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 //Style
-import { ImageBackground } from "react-native";
 import BG from "../../../LQ1QwfcR.jpg"
 import {
   AuthButton,
@@ -10,6 +9,7 @@ import {
   AuthOther,
   AuthTextInput,
   AuthTitle,
+  BkG,
 } from "../../../styles";
 //Component
 import { signUp } from "../../../store/actions/authActions";
@@ -32,12 +32,9 @@ const Signup = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground
-    style={{
-      width: "100%",
-      height: "100%",
-    }}
+    <BkG
     source={BG}
+    alt="img"
   >
     <AuthContainer>
       <AuthTitle>Sign Up</AuthTitle>  
@@ -70,7 +67,7 @@ const Signup = ({ navigation }) => {
         Already have an account? Sign in.
       </AuthOther>
     </AuthContainer>
-    </ImageBackground>
+    </BkG>
   );
 };
 

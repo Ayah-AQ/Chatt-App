@@ -1,18 +1,23 @@
 import React from "react";
-import { Text } from "native-base";
-import { ImageBackground } from "react-native";
+
+import {View } from "native-base";
 import BG from "../../LQ1QwfcR.jpg"
+import { BkG,SignupButton, SignInButton} from '../../styles';
 const Home = ({ navigation }) => {
 
     return (
-        <ImageBackground
-        // style={{
-        //   width: "100%",
-        //   height: "100%",
-        // }}
-        // source={BG}
-      >
-          </ImageBackground>
+       <BkG source={BG} alt="Img"> 
+
+       <View style={{marginTop:700}}>
+       <SignInButton title="Already have account" onPress={()=>navigation.navigate("signIn")}
+       ></SignInButton>
+
+       <SignupButton title="Not a member yet" 
+       onPress={()=>navigation.navigate("signUp")}
+       ></SignupButton>
+       </View>
+
+       </BkG>
 )}
 
 export default Home;

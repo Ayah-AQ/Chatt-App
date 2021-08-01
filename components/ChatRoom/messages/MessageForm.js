@@ -1,15 +1,20 @@
 import React, { useState , useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+
 //style
-import {  Input } from "native-base";
-import { Button, Image, View, Platform } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import EmojiSelector, { Categories } from "react-native-emoji-selector";
+import {  Icon, Input } from "native-base";
+import {View, Platform } from 'react-native';
+import {
+  AntDesign, Ionicons
+} from "@expo/vector-icons";
 
 //action
 import { addMessage } from "../../../store/actions/messageActions";
-
 const MessageForm = () => {
+  const navigation = useNavigation();
+
+
   const dispatch = useDispatch();
   const [message, setMessage] = useState({
     text: "",
@@ -23,59 +28,57 @@ const MessageForm = () => {
     dispatch(addMessage(message));
     resetForm();
   };
-// Ask Laila emoji & image upload
-  const [image, setImage] = useState(null);
 
-  useEffect(() => {
-     (async () => {
-      if (Platform.OS !== 'web') {
-        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (status !== 'granted') {
-          alert('Sorry, we need camera roll permissions to make this work!');
-    }
-      }
-    })();
-  }, []);
+  return (    
+    <View 
+      style={{ flex: 0, flexDirection: 'row',marginBottom:10}}
+      > 
+    <View 
+    style={{  flex: 1,  flexDirection: "column-reverse"
+      }}
+    >
+    <Icon
+as={AntDesign}
+          name='camera'
+          size={30}
+          color='#887700'
+marginLeft="370"
+onPress={()=>navigation.navigate("ImagePick")}
+zIndex="1"
+  />
+ <Icon
+           as={Ionicons}
+           name='send-sharp'
+           size={30}
+           color='#887700'
+           marginLeft="370"
+           onPress={handleSubmit}
+           zIndex="1"
+          />
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-      
-    });
-
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
-
-  return (
-    <View>
-
-         {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-    </View> */}
-
-      <View>
+</View> 
+      <View 
+      style={{  flex: 1, 
+    flexDirection: "row-reverse",
+    }}
+    >
         <Input
           size="sm"
           placeholder="enter text"
-          onChangeText={(text) => setMessage({ ...message, text })} //this is the sort version of this code onChangeText={(value) => setUser({ ...user, username: value })} but we put username as an argument to shorten the code because if there is two username it will get shorten from this onChangeText={(username) => setUser({ ...user, username: username })} to the method above
-          color="black"
+          onChangeText={(text) => setMessage({ ...message, text })} 
+                   color="black"
           autoCapitalize="none"
-        />
+          width="200%"
         
-            {/* <EmojiSelector
-  category={Categories.symbols}
-  onEmojiSelected={emoji => console.log(emoji)}/>; */}
-        <Button onPress={handleSubmit}>send</Button>
+        />
+    
+  
       </View>
+
      
-    </View>
+
+
+   </View>
   );
 };
 export default MessageForm;

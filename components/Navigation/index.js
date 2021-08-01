@@ -1,17 +1,20 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 //Component
-import  Signin from "../Authentication/signIn";
-import Signup  from "../Authentication/signUp";
 import Home from "../Home";
 import Room from "../ChatRoom/Room";
+import ImagePick from "../ChatRoom/messages/ImagePick";
+
 import MessageList from "../ChatRoom/messages/MessageList";
+import Signup from "../Authentication/SignUp";
+import Signin from "../../components/Authentication/signIn/Signin"
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return(
+    
       <Navigator   
-      initialRouteName="signUp"
+      initialRouteName="Home"
       screenOptions={{
       // headerTintColor: "white",
       headerStyle: {
@@ -26,6 +29,13 @@ const RootNavigator = () => {
          <Screen
         name="Room"
         component={Room}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="ImagePick"
+        component={ImagePick}
         options={{
           headerShown: false,
         }}

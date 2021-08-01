@@ -1,42 +1,56 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //Style
-import { BkG, RedBox, RoomBorder } from "../../styles";
-
-
+import { BkG, RedBox, RoomBorder,ChatName, ChatImage } from "../../styles";
 import Profile from "../../Picture1.png";
 import BG from "../../LQ1QwfcR.jpg";
-import { View, Text, Image } from "native-base";
+import {  Icon } from "native-base";
+import {
+  FontAwesome
+} from "@expo/vector-icons";
 //component
 import MessageForm from "./messages/MessageForm";
 import MessageList from "./messages/MessageList";
+import { ScrollView } from "react-native-gesture-handler";
+import {signout} from "../../store/actions/authActions"
 
-function Room() {
+function Room({navigation}) {
   const messages = useSelector((state) => state.messageReducer.messages);
-
+ const el = useRef()
+  useEffect(() => {
+    el.current.scrollToEnd()
+  })
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer.user);
   return (
-    <BkG source={BG}>
-  
+    <BkG source={BG} alt="Img">
     <RoomBorder >
       <RedBox
        >
-        <Text>Chat name </Text>
-        {/* Ask Laila */}
-        <Image
-          src={Profile}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-          }}
+        <ChatName>Chat name </ChatName>
+        <ChatImage
+        alt="Img"
+          source={Profile}
         />
-
       </RedBox>
-      <View>
-        <MessageList messages={messages} />
-      </View>
+      
+      <ScrollView  ref={el}>
+        <MessageList messages={messages}  />
+      </ScrollView>
       <MessageForm />
-    </RoomBorder>
+      </RoomBorder>
+      {user && (
+          <Icon
+            name="sign-out"
+            as={FontAwesome}
+            style={{ color: "black" }}
+            onPress={() => dispatch(signout()),()=>navigation.navigate("Home")}
+            zIndex="1"
+          marginTop="70"
+        />
+        )}
+      
     </BkG>
   );
 }

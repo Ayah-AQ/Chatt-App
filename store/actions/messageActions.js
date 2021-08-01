@@ -6,12 +6,13 @@ export const fetchMessages = () => {
   return async (dispatch) => {
     try {
       const res = await instance.get("/messages");
+      console.log(res.data);
       dispatch({
         type: actionTypes.FETCH_MESSAGES,
         payload: res.data,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 };
@@ -21,7 +22,7 @@ export const addMessage = (newMessage) => {
     try {
       const formData = new FormData();
       for (const key in newMessage) formData.append(key, newMessage[key]);
-      const res = await instance.post(`/messages`, formData);
+      const res = await instance.post("/messages", formData);
       dispatch({
         type: actionTypes.ADD_MESSAGE,
         payload: { newMessage: res.data },
@@ -31,6 +32,21 @@ export const addMessage = (newMessage) => {
     }
   };
 };
+// export const addImage = (newMessage) => {
+//   return async (dispatch) => {
+//     try {
+//       const formData = new FormData();
+//       for (const key in newMessage) formData.append(key, newMessage[key]);
+//       const res = await instance.post("/messages", formData);
+//       dispatch({
+//         type: actionTypes.ADD_MESSAGE,
+//         payload: { newMessage: res.data },
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 export const deleteMessage = (messageId) => {
   return async (dispatch) => {
@@ -38,7 +54,7 @@ export const deleteMessage = (messageId) => {
       await instance.delete(`/messages/${messageId}`);
       dispatch({
         type: actionTypes.DELETE_MESSAGE,
-        payload: { messageId },
+        payload: { messageId: messageId },
       });
     } catch (error) {
       console.log(error);
