@@ -15,7 +15,8 @@ const setUser = (token) => {
     return {
       type: types.SET_USER,
       payload: null,
-    };}
+    };
+}
 };
 
 export const signUp = (newUser) => {
@@ -43,13 +44,9 @@ export const signIn = (userData,navigation) => {
 
 };
 
-export const signout = () => {
- 
-  return setUser()
-
-
-};
-
+export const signout = (navigation) => {
+   return setUser() 
+}
 export const checkForToken = () => async (dispatch) => {
   const token = await AsyncStorage.getItem("Token");
 

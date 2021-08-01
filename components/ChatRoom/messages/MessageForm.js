@@ -4,17 +4,13 @@ import { useNavigation } from "@react-navigation/native";
 
 //style
 import {  Icon, Input } from "native-base";
-import { Button, Image, View, Platform } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import EmojiSelector, { Categories } from "react-native-emoji-selector";
+import {View, Platform } from 'react-native';
 import {
   AntDesign, Ionicons
 } from "@expo/vector-icons";
 
 //action
 import { addMessage } from "../../../store/actions/messageActions";
-import { flex, marginTop } from "styled-system";
-
 const MessageForm = () => {
   const navigation = useNavigation();
 
@@ -34,10 +30,13 @@ const MessageForm = () => {
   };
 
   return (    
-    <View style={{
-      // flexDirection: 'row',
-      }}> 
-    <View style={{flexDirection:"column-reverse"}}>
+    <View 
+      style={{ flex: 0, flexDirection: 'row',marginBottom:10}}
+      > 
+    <View 
+    style={{  flex: 1,  flexDirection: "column-reverse"
+      }}
+    >
     <Icon
 as={AntDesign}
           name='camera'
@@ -45,6 +44,7 @@ as={AntDesign}
           color='#887700'
 marginLeft="370"
 onPress={()=>navigation.navigate("ImagePick")}
+zIndex="1"
   />
  <Icon
            as={Ionicons}
@@ -52,23 +52,26 @@ onPress={()=>navigation.navigate("ImagePick")}
            size={30}
            color='#887700'
            marginLeft="370"
-           onPress= {handleSubmit()}
+           onPress={handleSubmit}
+           zIndex="1"
           />
+
 </View> 
-      <View>
+      <View 
+      style={{  flex: 1, 
+    flexDirection: "row-reverse",
+    }}
+    >
         <Input
           size="sm"
           placeholder="enter text"
-          onChangeText={(text) => setMessage({ ...message, text })} //this is the sort version of this code onChangeText={(value) => setUser({ ...user, username: value })} but we put username as an argument to shorten the code because if there is two username it will get shorten from this onChangeText={(username) => setUser({ ...user, username: username })} to the method above
-          color="black"
+          onChangeText={(text) => setMessage({ ...message, text })} 
+                   color="black"
           autoCapitalize="none"
-          width="87%"
-         paddingBottom="5"
-        />
+          width="200%"
         
-            {/* <EmojiSelector
-  category={Categories.symbols}
-  onEmojiSelected={emoji => console.log(emoji)}/>; */}
+        />
+    
   
       </View>
 

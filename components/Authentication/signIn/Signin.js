@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-//Style
-import { ImageBackground } from "react-native";
-import BG from "../../../LQ1QwfcR.jpg"
+import { signIn } from "../../../store/actions/authActions";
 import {
   AuthButton,
   AuthButtonText,
@@ -10,12 +8,11 @@ import {
   AuthOther,
   AuthTextInput,
   AuthTitle,
+  BkG,
 } from "../../../styles";
-//Component
-import { signIn } from "../../../store/actions/authActions";
-
-
+import BG from "../../../LQ1QwfcR.jpg"
 const Signin = ({ navigation }) => {
+ 
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -27,12 +24,7 @@ const Signin = ({ navigation }) => {
    };
 
   return (
-    // Ask Laila
-    <ImageBackground
-    style={{
-      width: "100%",
-      height: "100%",
-    }}
+    <BkG
     source={BG}
     alt="img"
   >
@@ -54,11 +46,11 @@ const Signin = ({ navigation }) => {
       <AuthButton onPress={handleSubmit}>
         <AuthButtonText>Sign in</AuthButtonText>
       </AuthButton>
-      <AuthOther onPress={() => navigation.navigate("signUp")}>
+      <AuthOther onPress={() => navigation.navigate("Signup")}>
         Don't have an account? Sign up.
       </AuthOther>
     </AuthContainer>
-    </ImageBackground>
+    </BkG>
   );
 };
 

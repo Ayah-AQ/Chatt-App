@@ -1,12 +1,14 @@
 import React from "react";
 
-import {Text, View,Image} from "react-native";
+import { View,Image} from "react-native";
 import { MessageBox, MessageImage } from "../../../styles";
 
 const DetailsMessage = ({ message }) => {
   return (
     <>
-    <View style={{ flexDirection: "column" }}>
+    <View style={{ 
+      height:150
+        }}>
       <MessageBox>
         {message.text}
       </MessageBox>

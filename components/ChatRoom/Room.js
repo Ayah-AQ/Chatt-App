@@ -1,47 +1,56 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //Style
-import { BkG, RedBox, RoomBorder } from "../../styles";
-
-
+import { BkG, RedBox, RoomBorder,ChatName, ChatImage } from "../../styles";
 import Profile from "../../Picture1.png";
 import BG from "../../LQ1QwfcR.jpg";
-import { View, Text, Image } from "native-base";
+import {  Icon } from "native-base";
+import {
+  FontAwesome
+} from "@expo/vector-icons";
 //component
 import MessageForm from "./messages/MessageForm";
 import MessageList from "./messages/MessageList";
 import { ScrollView } from "react-native-gesture-handler";
-import ImgPick from "./messages/ImagePick/index.js";
-import { zIndex } from "styled-system";
+import {signout} from "../../store/actions/authActions"
 
-function Room() {
+function Room({navigation}) {
   const messages = useSelector((state) => state.messageReducer.messages);
-
+ const el = useRef()
+  useEffect(() => {
+    el.current.scrollToEnd()
+  })
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer.user);
   return (
     <BkG source={BG} alt="Img">
     <RoomBorder >
       <RedBox
        >
-        <Text style={{position: "absolute",marginLeft:"70%",marginTop:40, }}>Chat name </Text>
-        <Image
+        <ChatName>Chat name </ChatName>
+        <ChatImage
         alt="Img"
           source={Profile}
-          style={{
-            width: 90,
-            height: 90,
-            marginTop:14,
-            zIndex:1
-          }}
         />
       </RedBox>
       
-      <ScrollView>
-        <MessageList messages={messages} />
+      <ScrollView  ref={el}>
+        <MessageList messages={messages}  />
       </ScrollView>
       <MessageForm />
       </RoomBorder>
-      <View type="button" style={{marginLeft:20,marginTop:"150%", }}>
-       </View>
+      {user && (
+          <Icon
+            name="sign-out"
+            as={FontAwesome}
+            style={{ color: "black" }}
+            onPress={() => dispatch(signout()),()=>navigation.navigate("Home")}
+            zIndex="1"
+          marginTop="70"
+        />
+        )}
+      
     </BkG>
   );
 }
