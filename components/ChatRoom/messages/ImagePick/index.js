@@ -63,11 +63,11 @@ function ImgPick() {
     </View>
     </BkG>
   );
-}
+ }
 
-export default ImgPick;
+ export default ImgPick;
 
-const styles = StyleSheet.create({
+ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: 'cover'
   }
-});
+ });

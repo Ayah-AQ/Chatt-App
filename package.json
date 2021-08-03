@@ -24,6 +24,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-atoz-list": "^1.0.5",
     "react-native-elements": "^3.4.2",
     "react-native-emoji-input": "^1.1.10",
     "react-native-emoji-selector": "^0.2.0",

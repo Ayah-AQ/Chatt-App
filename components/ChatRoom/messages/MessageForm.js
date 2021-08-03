@@ -62,7 +62,7 @@ zIndex="1"
     flexDirection: "row-reverse",
     }}
     >
-        <Input
+      <Input
           size="sm"
           placeholder="enter text"
           onChangeText={(text) => setMessage({ ...message, text })} 
@@ -71,14 +71,8 @@ zIndex="1"
           width="200%"
         
         />
-    
-  
       </View>
-
-     
-
-
-   </View>
+  </View>
   );
 };
 export default MessageForm;
