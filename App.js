@@ -10,13 +10,16 @@ import BG from "./LQ1QwfcR.jpg";
 
 import Room from "./components/ChatRoom/Room";
 import  RootNavigator  from "./components/Navigation/index";
-import { BkG } from "./styles";
 
 
 
 export default function App() {
   return (
-    <BkG
+    <ImageBackground
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
       source={BG}
     >
       <Provider store={store}>
@@ -29,7 +32,7 @@ export default function App() {
          </NavigationContainer>
         </NativeBaseProvider>
       </Provider>
-    </BkG>
+    </ImageBackground>
   );
 }
 

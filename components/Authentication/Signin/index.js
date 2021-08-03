@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { signIn } from "../../../store/actions/authActions";
+import { signin } from "../../../store/actions/authActions";
 import {
   AuthButton,
   AuthButtonText,
@@ -8,26 +8,20 @@ import {
   AuthOther,
   AuthTextInput,
   AuthTitle,
-  BkG,
 } from "../../../styles";
-import BG from "../../../LQ1QwfcR.jpg"
+
 const Signin = ({ navigation }) => {
- 
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
    const dispatch = useDispatch()
   const handleSubmit = async () => {
-    await dispatch(signIn(user, navigation));
+    await dispatch(signin(user, navigation));
 
    };
 
   return (
-    <BkG
-    source={BG}
-    alt="img"
-  >
     <AuthContainer>
       <AuthTitle>Sign In</AuthTitle>
       <AuthTextInput
@@ -50,7 +44,6 @@ const Signin = ({ navigation }) => {
         Don't have an account? Sign up.
       </AuthOther>
     </AuthContainer>
-    </BkG>
   );
 };
 

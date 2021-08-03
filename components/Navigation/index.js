@@ -7,7 +7,7 @@ import ImagePick from "../ChatRoom/messages/ImagePick";
 
 import MessageList from "../ChatRoom/messages/MessageList";
 import Signup from "../Authentication/SignUp";
-import Signin from "../../components/Authentication/signIn/Signin"
+import Signin from "../../components/Authentication/Signin"
 import { ProfileSettings } from "../ProfileSettings";
 import ConversationList from "../ConversationsList.js";
 
@@ -16,7 +16,7 @@ const RootNavigator = () => {
   return(
     
       <Navigator   
-      initialRouteName="ConversationList"
+      initialRouteName="Home"
       screenOptions={{
       // headerTintColor: "white",
       headerStyle: {
@@ -42,13 +42,13 @@ const RootNavigator = () => {
           headerShown: false,
         }}
       />
-       <Screen
+       {/* <Screen
         name="ConversationList"
         component={ConversationList}
         options={{
           headerShown: false,
         }}
-      /> 
+      />  */}
        <Screen
         name="MessageList"
         component={MessageList}
