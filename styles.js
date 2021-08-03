@@ -1,3 +1,4 @@
+import { Container } from "native-base";
 import { Button, Text ,View, Image} from "react-native";
 import { ImageBackground } from "react-native";
 import styled from "styled-components/native";
@@ -91,6 +92,7 @@ top: 3%;
 export const BkG= styled(ImageBackground)`
 width: 100%;
 height: 100%;
+/* background-color:linear-gradient(180deg, rgba(250, 255, 0, 0.702) 0%, rgba(255, 245, 0, 0) 100%);  */
 `;
 export const RoomBorder = styled(View)`
 height:100%;
@@ -123,11 +125,54 @@ background:red;
 export const ChatName  = styled(Text)`
 position: absolute;
 margin-left:70%;
-margin-top:40;
+margin-top:40px;
+font-size:30px;
+color:white;
 `;
 export const ChatImage  = styled(Image)`
-width: 90;
-height: 90;
-margin-top:14;
+width: 90px;
+height: 90px;
+margin-top:14px;
 z-Index:1;
+`;
+export const Username = styled(Text)`
+position:absolute;
+color: red;
+font-size: 40px;
+margin-bottom: 50px;
+border-bottom-color: rgb(255, 182, 193);
+align-self:auto;
+padding-top:-60%;
+`;
+export const ProfileSettingInput = styled.TextInput`
+align-self: stretch;
+text-align: left;
+height: 40px;
+margin-bottom: 30px;
+border-bottom-width: 1px;
+color:black;
+margin-top: 30px;
+
+`;
+export const BioInput = styled.TextInput`
+align-self: center;
+text-align: center;
+height: 40px;
+margin-bottom: 30px;
+border: 1px;
+color:black;
+height: 100px;
+width: 350px;
+`;
+export const SettingBKG = styled(View)`/* Rectangle 8 */
+
+position: absolute;
+width: 360px;
+height: 640px;
+left: 0px;
+top: 0px;
+
+background-color:rgba(255, 221, 43, 0.42);
+height: 100%;
+width: 100%;
 `;

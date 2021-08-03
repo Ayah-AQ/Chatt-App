@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         chats: action.payload,
         loading: false,
+        fetch: true,
       };
 
     case actionTypes.ADD_CHAT:
@@ -24,6 +25,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         chats: state.chats.filter((chat) => chat.id !== action.payload.chatId),
+      };
+    case actionTypes.DETAIL_CHAT:
+      return {
+        ...state,
+        chats: state.chats.filter((chat) => chat.id === action.payload.chatId),
+        fetch: false,
+        loading: false,
       };
     default:
       return state;

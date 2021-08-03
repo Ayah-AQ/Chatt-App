@@ -13,7 +13,7 @@ import {
 import MessageForm from "./messages/MessageForm";
 import MessageList from "./messages/MessageList";
 import { ScrollView } from "react-native-gesture-handler";
-import {signout} from "../../store/actions/authActions"
+import {signout,fetchProfiles} from "../../store/actions/authActions"
 
 function Room({navigation}) {
   const messages = useSelector((state) => state.messageReducer.messages);
@@ -21,17 +21,23 @@ function Room({navigation}) {
   useEffect(() => {
     el.current.scrollToEnd()
   })
+
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authReducer.user);
+  const users = useSelector((state) => state.authReducer.user);
+  console.log("room",users);
+      useEffect(() => {
+    dispatch(fetchProfiles(users.id));
+  }, []);
   return (
     <BkG source={BG} alt="Img">
     <RoomBorder >
       <RedBox
        >
-        <ChatName>Chat name </ChatName>
+        <ChatName>{users.username} </ChatName>
         <ChatImage
         alt="Img"
-          source={Profile}
+          source={users.image}
+          // style={{borderRadius:"50%"}}
         />
       </RedBox>
       
@@ -40,17 +46,7 @@ function Room({navigation}) {
       </ScrollView>
       <MessageForm />
       </RoomBorder>
-      {user && (
-          <Icon
-            name="sign-out"
-            as={FontAwesome}
-            style={{ color: "black" }}
-            onPress={() => dispatch(signout()),()=>navigation.navigate("Home")}
-            zIndex="1"
-          marginTop="70"
-        />
-        )}
-      
+       
     </BkG>
   );
 }

@@ -61,3 +61,36 @@ export const checkForToken = () => async (dispatch) => {
     }
   }
 };
+
+
+export const fetchProfiles = (userId) => {
+  return async (dispatch) => {
+    try {
+      console.log("hello", userId);
+      const res = await instance.get(`/userprofile/${userId}`);
+
+      dispatch({
+        type: actionTypes.FETCH_PROFILES,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const updateProfile = (updatedProfile, userId) => {
+  return async (dispatch) => {
+    try {
+      const formData = new FormData();
+      for (const key in updatedProfile)
+        formData.append(key, updatedProfile[key]);
+      const res = await instance.put(`/userprofile/${userId}`, formData);
+      dispatch({
+        type: actionTypes.UPDATE_PROFILE,
+        payload: { updatedProfile: res.data },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

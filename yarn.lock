@@ -6419,6 +6419,11 @@ react-native-animatable@^1.3.0:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-atoz-list@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-atoz-list/-/react-native-atoz-list-1.0.5.tgz#c9026dafaa8c1be3cb673a0390ab05e0d4e823e4"
+  integrity sha512-czFWHt9x/SCfpIhNq8NZGa5HckOXJCKxtSARSKnfujashJJvtKIlUqvIomQqU5HnGTryfLvCNv2kOv02ua2/WA==
+
 react-native-elements@^0.19.0:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.19.1.tgz#f92b69d864a150215d01f81fe3c52a9cada83e45"
