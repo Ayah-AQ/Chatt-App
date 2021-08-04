@@ -4,19 +4,21 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../Home";
 import Room from "../ChatRoom/Room";
 import ImagePick from "../ChatRoom/messages/ImagePick";
+import ChatListComponent from "../ChatRoom/chats/ChatListComponent";
 
 import MessageList from "../ChatRoom/messages/MessageList";
 import Signup from "../Authentication/SignUp";
 import Signin from "../../components/Authentication/signIn/Signin"
 import { ProfileSettings } from "../ProfileSettings";
-import ConversationList from "../ConversationsList.js";
+
+// import ConversationList from "../ConversationsList.js";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return(
     
       <Navigator   
-      initialRouteName="ConversationList"
+      initialRouteName="Home"
       screenOptions={{
       // headerTintColor: "white",
       headerStyle: {
@@ -31,8 +33,11 @@ const RootNavigator = () => {
          <Screen
         name="Room"
         component={Room}
-        options={{
-          headerShown: false,
+            options={({ route }) => {
+          const {chat} = route.params;
+          return {
+            title: chat.name,
+          };
         }}
       />
       <Screen
@@ -42,13 +47,13 @@ const RootNavigator = () => {
           headerShown: false,
         }}
       />
-       <Screen
-        name="ConversationList"
-        component={ConversationList}
+       {/* <Screen
+        name="FullPage"
+        component={FullPage}
         options={{
           headerShown: false,
         }}
-      /> 
+      />  */}
        <Screen
         name="MessageList"
         component={MessageList}
@@ -62,6 +67,11 @@ const RootNavigator = () => {
         options={{
           headerShown: false,
         }}
+      />
+      <Screen
+        name="ChatListComponent"
+        component={ChatListComponent}
+       
       />
    <Screen
         name="signIn"
