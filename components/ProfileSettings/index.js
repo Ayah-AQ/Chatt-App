@@ -5,7 +5,7 @@ import { StyleSheet, Text } from "react-native";
 import { LinearGradient } from "react-native-svg";
 import { useDispatch, useSelector } from "react-redux";
 import Profile from "../../Picture1.png"
-// import { AuthContainer, AuthTextInput, AuthTitle, BioInput, ProfileSettingInput,  SettingBKG,  Username } from "../../styles";
+import { AuthContainer, AuthTextInput, AuthTitle, BioInput, ProfileSettingInput,  SettingBKG,  Username } from "../../styles";
 
 export const ProfileSettings = ({ route, navigation }) => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export const ProfileSettings = ({ route, navigation }) => {
     return(
       
 <SettingBKG>
-    {/* <Image source={user.image} style={{width:200,height:200,marginLeft:100,marginTop:50,marginBottom:-100}}></Image> */}
+    <Image source={{uri:user.image}} style={{width:200,height:200,marginLeft:100,marginTop:50,marginBottom:-100}}></Image>
     <Icon
             name="account-edit"
             as={MaterialCommunityIcons}

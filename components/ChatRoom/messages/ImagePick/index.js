@@ -4,6 +4,8 @@ import BG from "../../../../LQ1QwfcR.jpg"
 import * as ImagePicker from 'expo-image-picker';
 import { BkG } from '../../../../styles';
 import { width } from 'styled-system';
+import { createFormData } from '../../../../store/actions/messageActions';
+
 
 function ImgPick() {
   const [pickedImagePath, setPickedImagePath] = useState('');
@@ -39,7 +41,22 @@ function ImgPick() {
       // console.log(result.uri);
     }
   }
-
+handleUploadPhoto = () => {
+  fetch("http://localhost:3000/api/upload", {
+    method: "POST",
+    body: createFormData(this.state.photo, { userId: "123" })
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log("upload succes", response);
+      alert("Upload success!");
+      this.setState({ photo: null });
+    })
+    .catch(error => {
+      console.log("upload error", error);
+      alert("Upload failed!");
+    });
+};
   return (
     <BkG source={BG} alt="Img">
 
@@ -58,7 +75,7 @@ function ImgPick() {
         }
       </View >
       <View style={{width:60,marginLeft:"42%"}}>
-      <Button title="send" ></Button>
+      <Button title="send" onPress={handleUploadPhoto}></Button>
       </View>
     </View>
     </BkG>

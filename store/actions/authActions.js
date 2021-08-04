@@ -24,7 +24,7 @@ export const signUp = (newUser) => {
     try {
       const res = await instance.post("/signup", newUser);
       dispatch(setUser(res.data.token));
-      navigation.navigate("Room")
+      navigation.navigate("ChatListComponent")
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +36,7 @@ export const signIn = (userData,navigation) => {
     try {
       const res = await instance.post("/signin", userData);
       dispatch(setUser(res.data.token));
-      navigation.navigate("Room")
+      navigation.navigate("ChatListComponent")
     } catch (error) {
       console.log(error);
     }

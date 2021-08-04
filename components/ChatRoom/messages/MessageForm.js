@@ -24,7 +24,7 @@ const MessageForm = () => {
     setMessage({ text: "" });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     dispatch(addMessage(message));
     resetForm();
   };
@@ -33,7 +33,22 @@ const MessageForm = () => {
     <View 
       style={{ flex: 0, flexDirection: 'row',marginBottom:10}}
       > 
-    <View 
+      <View 
+      style={{  flex: 1, 
+    flexDirection: "row-reverse",
+    }}
+    >
+      <Input
+          size="sm"
+          placeholder="enter text"
+          onChangeText={(text) => setMessage({ ...message, text })} 
+                   color="black"
+          autoCapitalize="none"
+          width="200%"
+        
+        />
+      </View>
+          <View 
     style={{  flex: 1,  flexDirection: "column-reverse"
       }}
     >
@@ -57,21 +72,6 @@ zIndex="1"
           />
 
 </View> 
-      <View 
-      style={{  flex: 1, 
-    flexDirection: "row-reverse",
-    }}
-    >
-      <Input
-          size="sm"
-          placeholder="enter text"
-          onChangeText={(text) => setMessage({ ...message, text })} 
-                   color="black"
-          autoCapitalize="none"
-          width="200%"
-        
-        />
-      </View>
   </View>
   );
 };
